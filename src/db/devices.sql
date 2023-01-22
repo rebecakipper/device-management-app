@@ -16,7 +16,7 @@ CREATE TABLE devices(
 
 CREATE TABLE owners(
     id SERIAL PRIMARY KEY,
-    owner_name VARCHAR(255) NOT NULL CHECK(owner_name != ''),
+    owner_name VARCHAR(255) NOT NULL CHECK(owner_name != '') UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
