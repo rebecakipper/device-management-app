@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CreateInstanceModal from "@/components/CreateInstanceModal";
 
 function OwnersPage() {
     return (
@@ -12,6 +13,7 @@ function OwnersPage() {
                     <Link href="/owners/2">Owner 2</Link>
                 </li>
             </ul>
+            <CreateInstanceModal type={"owner"}></CreateInstanceModal>
         </>
     );
 }
