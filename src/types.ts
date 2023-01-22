@@ -10,7 +10,6 @@ export type Device = {
 export type Owner = {
     id: number;
     name: string;
-    devices: number[];
 };
 
 export type DevicesList = Device[];
