@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CreateInstanceModal from "@/components/CreateInstanceModal";
 
 function DevicesPage() {
     return (
@@ -14,6 +15,7 @@ function DevicesPage() {
                     <Link href="/devices/2">Device 2</Link>
                 </li>
             </ul>
+            <CreateInstanceModal type={"device"}></CreateInstanceModal>
         </>
     );
 }
