@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-
+import CreateDeviceForm from "./CreateDeviceForm";
+import CreateOwnerForm from "./CreateOwnerForm";
 const style = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -41,8 +42,8 @@ export default function CreateInstanceModal({ type }: Props) {
                     >
                         Create new {type}
                     </Typography>
-                    {type === "device" && <h1>device form</h1>}
-                    {type === "owner" && <h1>owner form</h1>}
+                    {type === "device" && <CreateDeviceForm></CreateDeviceForm>}
+                    {type === "owner" && <CreateOwnerForm></CreateOwnerForm>}
                 </Box>
             </Modal>
         </div>
