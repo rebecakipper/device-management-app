@@ -11,6 +11,7 @@ CREATE TABLE devices(
     device_type DEVICE_TYPE NOT NULL,
     available_space INTEGER NOT NULL,
     battery_status INTEGER NOT NULL,
+    owned BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
@@ -23,18 +24,18 @@ CREATE TABLE owners(
  CREATE TABLE ownerships(
     id SERIAL PRIMARY KEY,
     owner_id  INTEGER NOT NULL REFERENCES owners(id),
-    device_id INTEGER NOT NULL REFERENCES devices(id), 
+    device_id INTEGER NOT NULL REFERENCES devices(id)UNIQUE, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );   
 
 INSERT INTO 
-    devices (device_name, device_type, available_space, battery_status)
+    devices (device_name, device_type, available_space, battery_status, owned)
 VALUES 
-    ('A', 'Laptop', 360, 100),
-    ('B', 'Tablet', 40, 97),
-    ('C', 'Camera', 2360, 70),
-    ('D', 'Smartphone', 540, 40),
-    ('E', 'Laptop',50, 10);
+    ('A', 'Laptop', 360, 100,TRUE),
+    ('B', 'Tablet', 40, 97,TRUE),
+    ('C', 'Camera', 2360, 70,TRUE),
+    ('D', 'Smartphone', 540, 40,FALSE),
+    ('E', 'Laptop',50, 10,TRUE);
 
 INSERT INTO 
     owners (owner_name)
