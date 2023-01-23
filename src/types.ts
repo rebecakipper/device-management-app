@@ -1,15 +1,17 @@
 export type Device = {
     id: number;
-    name: string;
-    type: string;
-    ownerId: number;
-    availableSpace: number;
+    device_name: string;
+    device_type: string;
+    available_space: number;
     battery: number;
+    owned: boolean;
+    owner_name: string | null;
+    owner_id: number | null;
 };
 
 export type Owner = {
     id: number;
-    name: string;
+    owner_name: string;
 };
 
 export type DevicesList = Device[];
