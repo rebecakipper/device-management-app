@@ -4,7 +4,10 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
+//to be fetched from db
 const deviceTypes = [
     {
         type: "Laptop",
@@ -44,6 +47,34 @@ const owners = [
 ];
 
 export default function CreateDeviceForm() {
+    const [newDevice, setNewDevice] = useState({});
+    const router = useRouter();
+
+    const sendRequest = () => {
+        const path = "/api/newDevice";
+
+        fetch(path, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                device_name: "TESTER",
+                device_type: "Laptop",
+                available_space: 32,
+                battery_status: 100,
+                owned: true,
+                owner_id: 1,
+            }), //newDevice
+        })
+            .then((response) => response.json())
+            .then((resp) => {
+                if (resp.success === true) {
+                    return router.push("/devices");
+                }
+            });
+    };
+
     return (
         <>
             <Box
@@ -91,7 +122,9 @@ export default function CreateDeviceForm() {
                         </MenuItem>
                     ))}
                 </TextField>
-                <Button variant="contained">Create</Button>
+                <Button variant="contained" onClick={sendRequest}>
+                    Create
+                </Button>
             </Box>
         </>
     );
