@@ -7,6 +7,8 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import {} from "module";
+import { useState, useEffect } from "react";
 
 //to be fetched from db
 let listOfDevices: Device[] = [
