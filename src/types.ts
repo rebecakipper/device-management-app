@@ -12,6 +12,8 @@ export type Device = {
 export type Owner = {
     id: number;
     owner_name: string;
+    has_devices: boolean;
+    owned_devices_list: Device[] | null;
 };
 
 export type DevicesList = Device[];
