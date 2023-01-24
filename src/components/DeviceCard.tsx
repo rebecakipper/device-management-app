@@ -50,7 +50,7 @@ export default function DeviceCard({ device }: Props) {
                 }
                 action={
                     <IconButton aria-label="settings">
-                        <Link href={"/owners/" + device.id + "/edit"}>
+                        <Link href={"/devices/" + device.id + "/edit"}>
                             <EditIcon />
                         </Link>
                     </IconButton>
@@ -65,7 +65,7 @@ export default function DeviceCard({ device }: Props) {
                             <Typography align="center" variant="subtitle1">
                                 Owner:{" " + device.owner_name}
                                 <IconButton aria-label="owner-profile">
-                                    <Link href={"/owners/" + device.owner_id}>
+                                    <Link href={"/devices/" + device.owner_id}>
                                         <AccountCircleIcon />
                                     </Link>
                                 </IconButton>
